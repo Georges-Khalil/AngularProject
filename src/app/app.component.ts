@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { BindingTestComponent } from './binding-test/binding-test.component';
-import { ParentComponent } from './parent/parent.component';
-import { ApiTestingComponent } from './api-testing/api-testing.component';
+import { GenresMenuComponent } from './genres-menu/genres-menu.component';
+import { FilmsComponent } from './films/films.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, BindingTestComponent, ParentComponent, ApiTestingComponent],
+  imports: [CommonModule, RouterOutlet, GenresMenuComponent, FilmsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
