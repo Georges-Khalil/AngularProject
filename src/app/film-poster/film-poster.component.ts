@@ -14,7 +14,6 @@ export class FilmPosterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
   onPosterClick(): void {
@@ -22,7 +21,11 @@ export class FilmPosterComponent implements OnInit {
   }
 
   toggleFavorite(): void{
-    this.film.favorite = !this.film.favorite;
+    if (localStorage.getItem(this.film.id)) {
+      localStorage.removeItem(this.film.id);
+    } else {
+      localStorage.setItem(this.film.id, 'true');
+    }
   }
 
 }
