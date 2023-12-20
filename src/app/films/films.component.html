@@ -8,7 +8,7 @@
   </div>
   <div class="searchdiv">
     <input type="text" [(ngModel)]="searchText" placeholder="Search films...">
-    <a href="#" >Search</a>
+    <a href="#" (click)="searchClicked()">Search</a>
   </div>
   <app-film-poster *ngFor="let film of films" [film]="film"
     (posterClicked)="posterClicked.emit($event)"></app-film-poster>
