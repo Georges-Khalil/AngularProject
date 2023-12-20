@@ -19,7 +19,7 @@ export class FavoriteFilmsComponent {
   constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void {
-    for (let i = 0; i < localStorage.length-1; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key !== null) {
         this.keys.push(key);
