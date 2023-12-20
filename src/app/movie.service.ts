@@ -23,4 +23,12 @@ export class MovieService {
   getMoviesByGenre(genreId: number, page: number = 1): Observable<any> {
     return this.http.get(`${this.apiUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreId}`, this.options);
   }
+
+  getMovieDetails(movieId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/${movieId}?language=en-US`, this.options);
+  }
+
+  getMovieCredits(movieId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/${movieId}/credits?language=en-US`, this.options);
+  }
 }
