@@ -30,6 +30,10 @@ export class AppComponent {
     this.router.navigate(['/movie', id]);
   }
 
+  onOptionClicked(option: string): void {
+    this.router.navigate(['/films-special', option]);
+  }
+
   currentUrl(): string {
     return this.router.url;
   }

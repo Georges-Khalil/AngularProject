@@ -31,4 +31,8 @@ export class MovieService {
   getMovieCredits(movieId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/${movieId}/credits?language=en-US`, this.options);
   }
+
+  getSpecialMovies(option: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/${option}?language=en-US&page=1`, this.options);
+  }
 }

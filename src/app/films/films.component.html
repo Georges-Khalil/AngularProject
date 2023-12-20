@@ -1,5 +1,12 @@
 <div id="films">
-  <app-film-poster *ngFor="let film of films" [film]="film" (posterClicked)="posterClicked.emit($event)"></app-film-poster>
+  <div class="navdiv">
+    <a href="#" (click)="optionSelected('now-playing'); $event.preventDefault()">Now Playing</a>
+    <a href="#" (click)="optionSelected('popular'); $event.preventDefault()">Popular</a>
+    <a href="#" (click)="optionSelected('top-rated'); $event.preventDefault()">Top Rated</a>
+    <a href="#" (click)="optionSelected('upcoming'); $event.preventDefault()">Upcoming</a>
+  </div>
+  <app-film-poster *ngFor="let film of films" [film]="film"
+    (posterClicked)="posterClicked.emit($event)"></app-film-poster>
 </div>
 <div class="navdiv">
   <a href="#" (click)="previousPage()">
