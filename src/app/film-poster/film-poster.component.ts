@@ -16,7 +16,7 @@ export class FilmPosterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleFavorite() {
+  toggleFavorite(): void{
     this.film.favorite = !this.film.favorite;
   
   }
