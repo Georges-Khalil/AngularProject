@@ -6,6 +6,10 @@
     <a href="#" (click)="optionSelected('upcoming'); $event.preventDefault()">Upcoming</a>
     <a href="#" (click)="viewFavorites(); $event.preventDefault()">View Favorites</a>
   </div>
+  <div class="searchdiv">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search films...">
+    <a href="#" >Search</a>
+  </div>
   <app-film-poster *ngFor="let film of films" [film]="film"
     (posterClicked)="posterClicked.emit($event)"></app-film-poster>
 </div>

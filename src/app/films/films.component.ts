@@ -3,11 +3,12 @@ import { MovieService } from '../movie.service';
 import { FilmPosterComponent } from '../film-poster/film-poster.component';
 import { CommonModule } from '@angular/common';
 import { GenresMenuComponent } from '../genres-menu/genres-menu.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-films',
   standalone: true,
-  imports : [FilmPosterComponent, CommonModule, GenresMenuComponent],
+  imports : [FilmPosterComponent, CommonModule, GenresMenuComponent, FormsModule],
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
@@ -15,7 +16,7 @@ export class FilmsComponent implements OnInit {
   films: any[] = [];
   page: number = 1;
   genreId: number = 28;
-  searchQuery: string = '';
+  searchText: string = '';
   @Output() posterClicked = new EventEmitter<number>();
   @Output() optionClicked = new EventEmitter<string>();
   @Output() favoriteClicked = new EventEmitter<void>();
@@ -55,6 +56,9 @@ export class FilmsComponent implements OnInit {
 
   optionSelected(option: string): void {
     this.optionClicked.emit(option);
+  }
+
+  searchFilms(): void {
   }
 
   viewFavorites(): void {

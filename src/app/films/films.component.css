@@ -3,3 +3,11 @@ app-film-poster {
     flex-direction: column;
     width: 20%;
 }
+.searchdiv {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+    border-radius: 7px;
+    margin-left: 3%;
+  }
