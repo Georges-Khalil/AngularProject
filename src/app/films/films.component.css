@@ -1,0 +1,13 @@
+.film-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* optional, for some space between the items */
+}
+
+
+app-film-poster {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
