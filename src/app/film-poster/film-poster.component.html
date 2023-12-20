@@ -1,4 +1,4 @@
-<div class="film-poster">
+<div class="film-poster" (click)="onPosterClick()">
     <h2>{{ film.title }}</h2>
     <img class="img-poster" [src]="'https://image.tmdb.org/t/p/w500' + film.poster_path" alt="Poster for {{ film.title }}">
     <h3>{{ film.overview.substring(0, 150) + '....' }}</h3>

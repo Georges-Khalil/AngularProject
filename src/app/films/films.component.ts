@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { FilmPosterComponent } from '../film-poster/film-poster.component';
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,7 @@ export class FilmsComponent implements OnInit {
   films: any[] = [];
   page: number = 1;
   genreId: number = 28;
+  @Output() posterClicked = new EventEmitter<number>();
 
   constructor(private movieService: MovieService) { }
 

@@ -1,5 +1,6 @@
 <h1>API: themoviedb.org</h1>
-<div class="main_container">
+<div class="main_container" *ngIf="currentUrl() === '/' || currentUrl().startsWith('/genre')">
   <app-genres-menu (genreSelected)="onGenreSelected($event)"></app-genres-menu>
-  <app-films></app-films>
+  <app-films (posterClicked)="goToMovieDetails($event)"></app-films>
 </div>
+<router-outlet></router-outlet>
