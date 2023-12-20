@@ -33,7 +33,7 @@ export class FilmPosterComponent implements OnInit {
 
   checkIfFavorite(): void {
     const isFavorite = localStorage.getItem(this.film.id);
-    this.film.favorite = !!isFavorite; // Set to true if it exists, false otherwise
+    this.film.favorite = !!isFavorite;
   }
 
 }
