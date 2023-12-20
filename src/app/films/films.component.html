@@ -4,6 +4,7 @@
     <a href="#" (click)="optionSelected('popular'); $event.preventDefault()">Popular</a>
     <a href="#" (click)="optionSelected('top-rated'); $event.preventDefault()">Top Rated</a>
     <a href="#" (click)="optionSelected('upcoming'); $event.preventDefault()">Upcoming</a>
+    <a href="#" (click)="viewFavorites(); $event.preventDefault()">View Favorites</a>
   </div>
   <app-film-poster *ngFor="let film of films" [film]="film"
     (posterClicked)="posterClicked.emit($event)"></app-film-poster>
