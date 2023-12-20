@@ -34,6 +34,10 @@ export class AppComponent {
     this.router.navigate(['/films-special', option]);
   }
 
+  viewFavorites(): void {
+    this.router.navigate(['/favorites']);
+  }
+
   currentUrl(): string {
     return this.router.url;
   }

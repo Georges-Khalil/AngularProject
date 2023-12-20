@@ -2,5 +2,6 @@
 <div class="main_container" *ngIf="currentUrl() === '/' || currentUrl().startsWith('/genre')">
   <app-genres-menu (genreSelected)="onGenreSelected($event)"></app-genres-menu>
   <app-films (posterClicked)="goToMovieDetails($event)" (optionClicked)="onOptionClicked($event)"></app-films>
+  <a href="#t" class="favorite-button" (click)="viewFavorites(); $event.preventDefault()">View Favorites</a>
 </div>
 <router-outlet></router-outlet>

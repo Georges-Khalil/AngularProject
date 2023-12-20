@@ -17,7 +17,6 @@ export class FilmsComponent implements OnInit {
   genreId: number = 28;
   @Output() posterClicked = new EventEmitter<number>();
   @Output() optionClicked = new EventEmitter<string>();
-  @Output() favoritesClicked = new EventEmitter<number>();
 
   constructor(private movieService: MovieService) { }
 
@@ -54,10 +53,6 @@ export class FilmsComponent implements OnInit {
 
   optionSelected(option: string): void {
     this.optionClicked.emit(option);
-  }
-
-  viewFavorites(): void {
-    this.favoritesClicked.emit(this.genreId);
   }
 
 }
