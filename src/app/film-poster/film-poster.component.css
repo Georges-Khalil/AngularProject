@@ -1,0 +1,15 @@
+.heart {
+    cursor: pointer;
+    color: gray;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+
+  .heart:hover {
+    color: red;
+  }
+  
+  .heart.favorite {
+    color: red;
+    text-shadow: 0 0 3px red;
+  }
