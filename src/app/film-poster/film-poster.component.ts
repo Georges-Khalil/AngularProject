@@ -15,14 +15,13 @@ export class FilmPosterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const favorites = JSON.parse(localStorage.getItem('favorites') ?? '{}');
-    this.isFavorite = !!favorites[this.film.id];
-    this.isFavorite = !!favorites[this.film.id];
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '{}');  // {} is default value, if no favorites in local storage
+    this.isFavorite = !!favorites[this.film.id];  // !! converts to boolean
   }
 
   toggleFavorite(): void {
-    this.isFavorite = !this.isFavorite;
-    if (this.isFavorite) {
+    this.isFavorite = !this.isFavorite;   // Toggle favorite status
+    if (this.isFavorite) {                // Add or remove from favorites
       this.addToFavorites();
     } else {
       this.removeFromFavorites();
@@ -30,17 +29,15 @@ export class FilmPosterComponent implements OnInit {
   }
 
   addToFavorites() {
-    const favorites = JSON.parse(localStorage.getItem('favorites') ?? '{}');
-    delete favorites[this.film.id];
-    delete favorites[this.film.id];
-    favorites[this.film.id] = this.film;
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '{}');    // {} is default value, if no favorites in local storage
+    favorites[this.film.id] = this.film;                                        // Add to favorites                
+    localStorage.setItem('favorites', JSON.stringify(favorites));               // Save to local storage
   }
 
   removeFromFavorites() {
-    const favorites = JSON.parse(localStorage.getItem('favorites') ?? '{}');
-    delete favorites[this.film.id];
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '{}');    // {} is default value, if no favorites in local storage
+    delete favorites[this.film.id];                                             // Remove from favorites
+    localStorage.setItem('favorites', JSON.stringify(favorites));               // Save to local storage         
   }
 
   onPosterClick(): void {
