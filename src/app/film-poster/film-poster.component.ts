@@ -14,6 +14,7 @@ export class FilmPosterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.checkIfFavorite();
   }
 
   onPosterClick(): void {
@@ -28,6 +29,11 @@ export class FilmPosterComponent implements OnInit {
       localStorage.setItem(this.film.id, 'true');
       this.film.favorite = true;
     }
+  }
+
+  checkIfFavorite(): void {
+    const isFavorite = localStorage.getItem(this.film.id);
+    this.film.favorite = !!isFavorite; // Set to true if it exists, false otherwise
   }
 
 }
