@@ -25,6 +25,7 @@ export class MovieService {
     return this.http.get(`${this.apiUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreId}`, this.options);
   }
 
+<<<<<<< HEAD
   addToFavorites(movieId: number): void {
     this.favorites[movieId] = true;
     this.saveFavoritesToLocalStorage();
@@ -54,4 +55,13 @@ export class MovieService {
     }
   }
   
+=======
+  getMovieDetails(movieId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/${movieId}?language=en-US`, this.options);
+  }
+
+  getMovieCredits(movieId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/${movieId}/credits?language=en-US`, this.options);
+  }
+>>>>>>> 09c79c4650f0896a19e75dcdbde9ccc784e24948
 }

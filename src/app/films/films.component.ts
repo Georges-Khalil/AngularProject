@@ -21,7 +21,6 @@ export class FilmsComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getMoviesByGenre(this.genreId).subscribe(response => {
-      console.log(response.results);
       this.films = response.results;
     });
   }

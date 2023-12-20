@@ -15,11 +15,12 @@ export class FilmPosterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || {};
+    const favorites = JSON.parse(localStorage.getItem('favorites') ?? '{}');
+    this.isFavorite = !!favorites[this.film.id];
     this.isFavorite = !!favorites[this.film.id];
   }
 
-  toggleFavorite(): void{
+  toggleFavorite(): void {
     this.isFavorite = !this.isFavorite;
     if (this.isFavorite) {
       this.addToFavorites();
@@ -29,13 +30,15 @@ export class FilmPosterComponent implements OnInit {
   }
 
   addToFavorites() {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || {};
+    const favorites = JSON.parse(localStorage.getItem('favorites') ?? '{}');
+    delete favorites[this.film.id];
+    delete favorites[this.film.id];
     favorites[this.film.id] = this.film;
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
   removeFromFavorites() {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || {};
+    const favorites = JSON.parse(localStorage.getItem('favorites') ?? '{}');
     delete favorites[this.film.id];
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }

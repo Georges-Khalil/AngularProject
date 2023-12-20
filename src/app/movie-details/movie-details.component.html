@@ -1,1 +1,16 @@
-<p>Movie ID: {{ movieId }}</p>
+<div class="container">
+    <div class="left">
+      <h1>{{ movieDetails.title }}</h1>
+      <h3>{{ movieDetails.release_date }}</h3>
+      <img src="https://image.tmdb.org/t/p/w500{{ movieDetails.poster_path }}" alt="{{ movieDetails.title }} poster">
+    </div>
+    <div class="middle">
+      <h2>{{ movieDetails.overview }}</h2>
+    </div>
+    <div class="right">
+        <div *ngFor="let person of movieCast" class="cast-member">
+          <img src="{{ person.profilePhoto }}" alt="{{ person.name }} profile photo">
+          <p>{{ person.name }}</p>
+        </div>
+      </div>
+  </div>
