@@ -1,6 +1,6 @@
 <div class="film-poster" (click)="onPosterClick()">
     <h2>{{ film.title }}</h2>
-    <i class="fas fa-heart" [class.fas]="film.isFavorite" (click)="toggleFavorite()"></i>
+    <span class="heart-icon" onclick="toggleFavorite(this)">&hearts;</span>
     <img class="img-poster" [src]="'https://image.tmdb.org/t/p/w500' + film.poster_path" alt="Poster for {{ film.title }}">
     <h3>{{ film.overview.substring(0, 150) + '....' }}</h3>
   </div>  

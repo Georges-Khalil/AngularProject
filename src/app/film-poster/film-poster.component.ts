@@ -18,7 +18,6 @@ export class FilmPosterComponent implements OnInit {
 
   toggleFavorite() {
     this.film.favorite = !this.film.favorite;
-  
   }
 
   onPosterClick(): void {
