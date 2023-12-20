@@ -23,8 +23,10 @@ export class FilmPosterComponent implements OnInit {
   toggleFavorite(): void{
     if (localStorage.getItem(this.film.id)) {
       localStorage.removeItem(this.film.id);
+      this.film.favorite = false;
     } else {
       localStorage.setItem(this.film.id, 'true');
+      this.film.favorite = true;
     }
   }
 
