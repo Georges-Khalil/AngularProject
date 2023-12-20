@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { FilmPosterComponent } from '../film-poster/film-poster.component';
 import { CommonModule } from '@angular/common';
-import { FilmsComponent } from '../films/films.component';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favorite-films',
   standalone: true,
-  imports: [FilmsComponent, CommonModule],
+  imports: [ CommonModule, FilmPosterComponent],
   templateUrl: './favorite-films.component.html',
   styleUrl: './favorite-films.component.css'
 })
@@ -27,5 +26,16 @@ export class FavoriteFilmsComponent {
       }
     }
     console.log(this.keys);
+    for(let i = 0; i < this.keys.length; i++){
+      const keyNumber = Number(this.keys[i]);
+      this.movieService.getMovieDetails(keyNumber).subscribe(response => {
+        this.favoriteFilms.push(response);
+      });
+    }
+    console.log(this.favoriteFilms);
+  }
+
+  goToMovieDetails(id: number): void {
+    this.router.navigate(['/movie', id]);
   }
 }

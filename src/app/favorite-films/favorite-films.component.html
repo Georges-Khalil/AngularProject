@@ -1,1 +1,7 @@
-<p>favorite-films works!</p>
+<div id="films">
+    <div class="option-text">
+      <h1>{{Text}}</h1>
+    </div>
+      <app-film-poster *ngFor="let film of favoriteFilms" [film]="film" 
+      (posterClicked)="goToMovieDetails($event)"></app-film-poster>
+    </div>
