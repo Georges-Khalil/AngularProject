@@ -15,6 +15,7 @@ export class FilmsComponent implements OnInit {
   films: any[] = [];
   page: number = 1;
   genreId: number = 28;
+  searchQuery: string = '';
   @Output() posterClicked = new EventEmitter<number>();
   @Output() optionClicked = new EventEmitter<string>();
   @Output() favoriteClicked = new EventEmitter<void>();
@@ -60,4 +61,5 @@ export class FilmsComponent implements OnInit {
     this.favoriteClicked.emit();
   }
 
+  
 }

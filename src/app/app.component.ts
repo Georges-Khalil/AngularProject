@@ -14,6 +14,7 @@ import { MovieService } from './movie.service';
 })
 export class AppComponent {
   title = 'first-ang';
+  searchQuery: string = '';
   @ViewChild(FilmsComponent) filmsComponent!: FilmsComponent;
 
   constructor(private movieService: MovieService, private router: Router) {
