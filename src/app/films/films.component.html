@@ -1,5 +1,5 @@
 <div id="films">
-  <app-film-poster *ngFor="let film of films" [film]="film"></app-film-poster>
+  <app-film-poster *ngFor="let film of films" [film]="film" (posterClicked)="posterClicked.emit($event)"></app-film-poster>
 </div>
 <div class="navdiv">
   <a href="#" (click)="previousPage()">
