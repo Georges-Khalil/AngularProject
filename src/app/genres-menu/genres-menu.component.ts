@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class GenresMenuComponent implements OnInit {
   genres: any[] = [];
+  @Output() genreSelected = new EventEmitter<number>();
 
   constructor(private movieService: MovieService) { }
 
@@ -21,6 +22,6 @@ export class GenresMenuComponent implements OnInit {
   }
 
   selectGenre(genreId: number): void {
-    this.movieService.getMoviesByGenre(genreId).subscribe();
+    this.genreSelected.emit(genreId);
   }
 }

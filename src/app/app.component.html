@@ -1,5 +1,5 @@
 <h1>API: themoviedb.org</h1>
 <div class="main_container">
-  <app-genres-menu></app-genres-menu>
+  <app-genres-menu (genreSelected)="onGenreSelected($event)"></app-genres-menu>
   <app-films></app-films>
 </div>

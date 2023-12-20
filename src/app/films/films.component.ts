@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { FilmPosterComponent } from '../film-poster/film-poster.component';
 import { CommonModule } from '@angular/common';
+import { GenresMenuComponent } from '../genres-menu/genres-menu.component';
 
 @Component({
   selector: 'app-films',
   standalone: true,
-  imports : [FilmPosterComponent, CommonModule],
+  imports : [FilmPosterComponent, CommonModule, GenresMenuComponent],
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
@@ -18,6 +19,15 @@ export class FilmsComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+    this.movieService.getMoviesByGenre(this.genreId).subscribe(response => {
+      console.log(response.results);
+      this.films = response.results;
+    });
+  }
+
+  onGenreSelected(genreId: number): void {
+    this.genreId = genreId;
+    this.page = 1;
     this.movieService.getMoviesByGenre(this.genreId).subscribe(response => {
       console.log(response.results);
       this.films = response.results;

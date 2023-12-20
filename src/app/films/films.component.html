@@ -1,7 +1,8 @@
 <div id="films">
-    <app-film-poster *ngFor="let film of films" [film]="film"></app-film-poster>
-  </div>
-  <div class="navdiv">
-    <a href="#" (click)="previousPage()"><<< Previous</a>
-    <a href="#" (click)="nextPage()">Next >>></a>
-  </div>  
+  <app-film-poster *ngFor="let film of films" [film]="film"></app-film-poster>
+</div>
+<div class="navdiv">
+  <a href="#" (click)="previousPage()">
+    <<< Previous</a>
+      <a href="#" (click)="nextPage()">Next >>></a>
+</div>
