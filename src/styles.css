@@ -100,17 +100,17 @@ a {
 .heart-icon {
     cursor: pointer;
     fill: none;
-    stroke: red; /* Change color to your preference */
+    stroke: red;
     stroke-width: 2;
   }
   
   .filled-heart {
-    fill: red; /* Change color to your preference */
+    fill: red;
     stroke: none;
   }
   
   .empty-heart {
     fill: none;
-    stroke: red; /* Change color to your preference */
+    stroke: red;
     stroke-width: 2;
   }

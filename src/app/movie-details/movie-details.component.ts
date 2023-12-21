@@ -36,8 +36,7 @@ export class MovieDetailsComponent implements OnInit {
           name: person.name,
           profilePhoto: `https://image.tmdb.org/t/p/w500${person.profile_path}`
         }));
-        console.log('Movie Cast:', this.movieCast);
-      });
+       });
     });
   }
 
