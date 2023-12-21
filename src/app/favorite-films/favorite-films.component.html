@@ -2,6 +2,10 @@
     <div class="option-text">
       <h1>{{Text}}</h1>
     </div>
+    <div class="searchdiv">
+      <input type="text" [(ngModel)]="searchText" placeholder="Search films...">
+      <a href="#" (click)="searchClicked(); $event.preventDefault()">Search</a>
+    </div>
       <app-film-poster *ngFor="let film of favoriteFilms" [film]="film" 
       (posterClicked)="goToMovieDetails($event)"></app-film-poster>
     </div>

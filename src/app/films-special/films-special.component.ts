@@ -4,11 +4,12 @@ import { MovieService } from '../movie.service';
 import { FilmPosterComponent } from '../film-poster/film-poster.component';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-films-special',
   standalone: true,
-  imports: [FilmPosterComponent, CommonModule],
+  imports: [FilmPosterComponent, CommonModule, FormsModule],
   templateUrl: './films-special.component.html',
   styleUrl: './films-special.component.css'
 })
@@ -16,6 +17,7 @@ export class FilmsSpecialComponent implements OnInit{
   option: string = '';
   films: any[] = [];
   optionText: string = '';
+  searchText: string = '';
 
   constructor(private route: ActivatedRoute, private movieService: MovieService, private router: Router) { }
 
@@ -44,5 +46,13 @@ export class FilmsSpecialComponent implements OnInit{
 
   goToMovieDetails(id: number): void {
     this.router.navigate(['/movie', id]);
+  }
+
+  searchClicked(): void {
+    this.movieService.getSpecialMovies(this.option).subscribe(response => {
+      this.films = response.results;
+      this.films = this.films.filter(film => film.title.toLowerCase().includes(this.searchText.toLowerCase()));
+      this.searchText = '';
+    });
   }
 }

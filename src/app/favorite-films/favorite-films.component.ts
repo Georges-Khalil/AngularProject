@@ -3,18 +3,21 @@ import { MovieService } from '../movie.service';
 import { FilmPosterComponent } from '../film-poster/film-poster.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-favorite-films',
   standalone: true,
-  imports: [ CommonModule, FilmPosterComponent],
+  imports: [ CommonModule, FilmPosterComponent, FormsModule],
   templateUrl: './favorite-films.component.html',
   styleUrl: './favorite-films.component.css'
 })
 export class FavoriteFilmsComponent {
   favoriteFilms: any[] = [];
+  originalFavoriteFilms: any[] = [];
   Text: string = 'Favorites';
   keys: string[] = [];
+  searchText: string = '';
 
   constructor(private movieService: MovieService, private router: Router) { }
 
@@ -25,17 +28,21 @@ export class FavoriteFilmsComponent {
         this.keys.push(key);
       }
     }
-    console.log(this.keys);
     for(let i = 0; i < this.keys.length; i++){
       const keyNumber = Number(this.keys[i]);
       this.movieService.getMovieDetails(keyNumber).subscribe(response => {
         this.favoriteFilms.push(response);
+        this.originalFavoriteFilms.push(response);
       });
     }
-    console.log(this.favoriteFilms);
   }
 
   goToMovieDetails(id: number): void {
     this.router.navigate(['/movie', id]);
+  }
+
+  searchClicked(): void {
+    this.favoriteFilms = this.originalFavoriteFilms.filter(film => film.title.toLowerCase().includes(this.searchText.toLowerCase()));
+    this.searchText = '';
   }
 }
