@@ -58,9 +58,6 @@ export class FilmsComponent implements OnInit {
     this.optionClicked.emit(option);
   }
 
-  searchFilms(): void {
-  }
-
   viewFavorites(): void {
     this.favoriteClicked.emit();
   }

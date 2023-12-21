@@ -17,3 +17,12 @@ app-film-poster {
 h1{
     font-size: 30px;
 }
+
+.searchdiv {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+    border-radius: 7px;
+    margin-left: 3%;
+  }
