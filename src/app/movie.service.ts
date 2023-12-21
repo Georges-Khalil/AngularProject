@@ -35,4 +35,8 @@ export class MovieService {
   getSpecialMovies(option: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/${option}?language=en-US&page=1`, this.options);
   }
+
+  getMovieBySearch(search: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search/movie?language=en-US&query=${search}&page=1&include_adult=false`, this.options);
+  }
 }

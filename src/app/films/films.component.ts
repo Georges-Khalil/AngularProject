@@ -64,9 +64,8 @@ export class FilmsComponent implements OnInit {
 
   
   searchClicked(): void {
-    this.movieService.getMoviesByGenre(this.genreId).subscribe(response => {
+    this.movieService.getMovieBySearch(this.searchText).subscribe(response => {
       this.films = response.results;
-      this.films = this.films.filter(film => film.title.toLowerCase().includes(this.searchText.toLowerCase()));
       this.searchText = '';
     });
   }
